@@ -16,7 +16,7 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-    likedPostsId.push(id); 
+  likedPostsId.push(id); 
     showPosts(posts);
 };
 
@@ -64,7 +64,7 @@ const createPost = (post) => {
                   >
                     <img  src="${post.userImage}" alt="User Picture" />
                   </a>
-                  <a href="#" class="post__user">phero</a>
+                  <a href="#" class="post__user">${post.comments[0]?.user}</a>
                 </div>
 
                 <button class="post__more-options">
@@ -143,6 +143,7 @@ const showPosts = (posts) => {
 };
 
 const displayLikedPosts = () => {
+  document.getElementById("liked").innerHTML = '';
     const likedPosts = getLikedPosts();
     likedPosts.forEach((post) => {
         const div = createPost(post);
